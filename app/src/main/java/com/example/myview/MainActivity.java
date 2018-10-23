@@ -1,5 +1,6 @@
 package com.example.myview;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button circleViewButton;
     private Button irTestBtn;
     private Button pieButton;
+    private Button refreshButton;
+    private Button socketButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         irTestBtn.setOnClickListener(this);
         pieButton = findViewById(R.id.pie_view);
         pieButton.setOnClickListener(this);
+        refreshButton = findViewById(R.id.refresh_button);
+        refreshButton.setOnClickListener(this);
+        socketButton = findViewById(R.id.socket_button);
+        socketButton.setOnClickListener(this);
     }
 
     @Override
@@ -42,6 +49,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.pie_view:
                 Intent intent3 = new Intent(this,PieViewActivity.class);
                 startActivity(intent3);
+                break;
+            case R.id.refresh_button:
+                Intent intent4 = new Intent(this, RefreshActivity.class);
+                startActivity(intent4);
+                break;
+            case R.id.socket_button:
+                Intent intent5 = new Intent(this,SocketTestActivity.class);
+                startActivity(intent5);
+                break;
         }
+
     }
 }

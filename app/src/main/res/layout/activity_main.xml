@@ -8,13 +8,13 @@
     android:layout_margin="10dp">
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/circle_view"
         android:text="Circle View"
         android:textAllCaps="false"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/circle_view"
         android:text="IR key Test"
@@ -22,9 +22,23 @@
         android:id="@+id/ir_key_button"/>
     <Button
         android:id="@+id/pie_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ir_key_button"
         android:text="Pie View"
         android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/refresh_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pie_view"
+        android:text="Refresh"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/socket_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Socket"
+        android:textAllCaps="false"
+        android:layout_below="@id/refresh_button"/>
 </RelativeLayout>
