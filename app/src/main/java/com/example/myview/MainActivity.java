@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button pieButton;
     private Button refreshButton;
     private Button socketButton;
+    private Button launcherButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         refreshButton.setOnClickListener(this);
         socketButton = findViewById(R.id.socket_button);
         socketButton.setOnClickListener(this);
+        launcherButton = findViewById(R.id.launcher_test);
+        launcherButton.setOnClickListener(this);
     }
 
     @Override
@@ -57,6 +60,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.socket_button:
                 Intent intent5 = new Intent(this,SocketTestActivity.class);
                 startActivity(intent5);
+                break;
+            case R.id.launcher_test:
+                Intent intent1 = new Intent(this,LauncherActivity.class);
+                startActivity(intent1);
                 break;
         }
 

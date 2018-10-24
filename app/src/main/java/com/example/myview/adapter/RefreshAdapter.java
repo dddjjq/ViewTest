@@ -184,7 +184,7 @@ public class RefreshAdapter extends RecyclerView.Adapter implements MyRecyclerVi
             switch (msg.what){
                 case HIDE_HEAD:
                     adapter.headViewHolder1.setVisibleHeight(0);
-                    adapter.recyclerView.smoothScrollToPosition(0);
+                    adapter.recyclerView.scrollToPosition(0);
                     break;
             }
         }

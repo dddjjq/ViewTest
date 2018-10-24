@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myview">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -25,7 +25,8 @@
         <activity android:name=".IRKeyActivity" />
         <activity android:name=".PieViewActivity" />
         <activity android:name=".RefreshActivity" />
-        <activity android:name=".SocketTestActivity"></activity>
+        <activity android:name=".SocketTestActivity" />
+        <activity android:name=".LauncherActivity"></activity>
     </application>
 
 </manifest>
