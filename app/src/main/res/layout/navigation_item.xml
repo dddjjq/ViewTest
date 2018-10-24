@@ -14,6 +14,7 @@
         android:id="@+id/navigation_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLines="1"
         android:layout_gravity="center_vertical"
         android:text="电影"
         android:textSize="15sp"/>

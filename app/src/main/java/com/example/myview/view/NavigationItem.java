@@ -1,5 +1,6 @@
 package com.example.myview.view;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ public class NavigationItem extends LinearLayout {
 
     private ImageView navigationIcon;
     private TextView navigationText;
+    private int textWidth;
 
     public NavigationItem(Context context) {
         super(context);
@@ -33,6 +35,8 @@ public class NavigationItem extends LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.navigation_item,this,true);
         navigationIcon = findViewById(R.id.navigation_icon);
         navigationText = findViewById(R.id.navigation_text);
+        navigationText.setWidth(0);
+        setClickable(true);
     }
 
     public void setNavigationIcon(int iconId){
@@ -41,6 +45,20 @@ public class NavigationItem extends LinearLayout {
 
     public void setNavigationText(String text){
         navigationText.setText(text);
+    }
+
+    public void showText(){
+        ViewWrapper viewWrapper = new ViewWrapper(navigationText);
+        ObjectAnimator animator = ObjectAnimator.ofInt(viewWrapper,"width",150);
+        animator.setDuration(300);
+        animator.start();
+    }
+
+    public void hideText(){
+        ViewWrapper viewWrapper = new ViewWrapper(navigationText);
+        ObjectAnimator animator = ObjectAnimator.ofInt(viewWrapper,"width",0);
+        animator.setDuration(300);
+        animator.start();
     }
 
     class ViewWrapper{

@@ -41,7 +41,6 @@ public class MyRecyclerView extends RecyclerView {
 
     @Override
     public boolean onTouchEvent(MotionEvent e){
-
         layoutManager = (MyLinearLayoutManager)getLayoutManager();
         switch (e.getAction()){
             case MotionEvent.ACTION_DOWN:
