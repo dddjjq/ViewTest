@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button refreshButton;
     private Button socketButton;
     private Button launcherButton;
+    private Button slideMenuButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         socketButton.setOnClickListener(this);
         launcherButton = findViewById(R.id.launcher_test);
         launcherButton.setOnClickListener(this);
+        slideMenuButton = findViewById(R.id.slide_menu);
+        slideMenuButton.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +67,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.launcher_test:
                 Intent intent1 = new Intent(this,LauncherActivity.class);
                 startActivity(intent1);
+                break;
+            case R.id.slide_menu:
+                Intent intent6 = new Intent(this,SlideActivity.class);
+                startActivity(intent6);
                 break;
         }
 

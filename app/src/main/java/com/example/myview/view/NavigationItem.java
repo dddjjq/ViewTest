@@ -65,7 +65,7 @@ public class NavigationItem extends LinearLayout {
 
         private TextView textView;
 
-        public ViewWrapper(TextView textView){
+        private ViewWrapper(TextView textView){
             this.textView = textView;
         }
 

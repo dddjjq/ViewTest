@@ -48,4 +48,11 @@
         android:layout_below="@id/socket_button"
         android:text="Launcher Test"
         android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/slide_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/launcher_test"
+        android:text="Slide Menu"
+        android:textAllCaps="false"/>
 </RelativeLayout>

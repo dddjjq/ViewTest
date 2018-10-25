@@ -26,7 +26,8 @@
         <activity android:name=".PieViewActivity" />
         <activity android:name=".RefreshActivity" />
         <activity android:name=".SocketTestActivity" />
-        <activity android:name=".LauncherActivity"></activity>
+        <activity android:name=".LauncherActivity" />
+        <activity android:name=".SlideActivity"></activity>
     </application>
 
 </manifest>

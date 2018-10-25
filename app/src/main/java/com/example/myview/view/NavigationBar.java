@@ -17,10 +17,6 @@ import java.util.ArrayList;
 
 public class NavigationBar extends LinearLayout {
 
-    NavigationItem navigationItem0;
-    NavigationItem navigationItem1;
-    NavigationItem navigationItem2;
-    NavigationItem navigationItem3;
     public static final int NAVID0 = 0;
     public static final int NAVID1 = 1;
     public static final int NAVID2 = 2;
@@ -53,14 +49,10 @@ public class NavigationBar extends LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.navigation_bar,this,true);
         linearLayout = findViewById(R.id.navigation_bar_layout);
         navigationItems = new ArrayList<>();
-        navigationItem0 = new NavigationItem(context);
-        navigationItem1 = new NavigationItem(context);
-        navigationItem2 = new NavigationItem(context);
-        navigationItem3 = new NavigationItem(context);
-        navigationItems.add(navigationItem0);
-        navigationItems.add(navigationItem1);
-        navigationItems.add(navigationItem2);
-        navigationItems.add(navigationItem3);
+        for (int i =0;i<4;i++){
+            NavigationItem navigationItem = new NavigationItem(context);
+            navigationItems.add(navigationItem);
+        }
         for (int i=0;i<navigationItems.size();i++){
             NavigationItem ni = navigationItems.get(i);
             LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
