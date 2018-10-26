@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.myview.view.SlideItemView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:id="@+id/slide_layout">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,58 +16,31 @@
             android:text="test"
             android:textSize="16sp"/>
     </LinearLayout>
-    <RelativeLayout
-        android:id="@+id/slide_menu_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/slide_layout_main">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:id="@+id/slide_layout_top"
-            android:gravity="center"
-            android:background="@android:color/darker_gray">
-            <TextView
-                android:id="@+id/slide_top"
-                android:layout_width="100dp"
-                android:layout_height="60dp"
-                android:gravity="center"
-                android:text="置顶"
-                android:textSize="16sp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:id="@+id/slide_layout_mark"
-            android:gravity="center"
-            android:background="#d99029"
-            android:layout_toEndOf="@id/slide_layout_top">
-            <TextView
-                android:id="@+id/slide_mark"
-                android:layout_width="120dp"
-                android:layout_height="60dp"
-                android:gravity="center"
-                android:text="标为未读"
-                android:textSize="16sp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:id="@+id/slide_layout_delete"
-            android:gravity="center"
-            android:background="@android:color/holo_red_dark"
-            android:layout_toEndOf="@id/slide_layout_mark">
-            <TextView
-                android:id="@+id/slide_delete"
-                android:layout_width="100dp"
-                android:layout_height="60dp"
-                android:gravity="center"
-                android:text="删除"
-                android:textSize="16sp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-    </RelativeLayout>
-
-</RelativeLayout>
+    <Button
+        android:id="@+id/slide_top"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="置顶"
+        android:textSize="16sp"
+        android:background="@android:color/darker_gray"
+        android:textColor="#FFFFFF"/>
+    <Button
+        android:id="@+id/slide_mark"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="标为未读"
+        android:textSize="16sp"
+        android:background="#d89a30"
+        android:textColor="#FFFFFF"/>
+    <Button
+        android:id="@+id/slide_delete"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="删除"
+        android:textSize="16sp"
+        android:background="@android:color/holo_red_light"
+        android:textColor="#FFFFFF"/>
+</com.example.myview.view.SlideItemView>
