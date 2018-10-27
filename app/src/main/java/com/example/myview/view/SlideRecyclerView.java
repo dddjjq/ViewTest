@@ -3,77 +3,86 @@ package com.example.myview.view;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewConfiguration;
 
 import com.example.myview.SlideLayoutManager;
 import com.example.myview.adapter.SlideRecyclerAdapter;
+import com.example.myview.util.DensityUtil;
 
 public class SlideRecyclerView extends RecyclerView {
 
     private float oldX;
     private float oldY;
-    private float newX;
-    private float newY;
     private int touchSlop;
     private float dx;
     private float dy;
     private SlideLayoutManager manager;
-    private boolean canJudge = true;
     private int currentItem;
     private SlideRecyclerAdapter adapter;
+    private static int itemHeight;
+    private SlideRecyclerAdapter.ViewHolder viewHolder;
+    private View view;
 
     public SlideRecyclerView(@NonNull Context context) {
         super(context);
-        init();
+        init(context);
     }
 
     public SlideRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context);
     }
 
-    private void init(){
+    private void init(Context context){
         touchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-        //Log.d("dingyl","touchSlop : " + touchSlop);
+        itemHeight = DensityUtil.dp2px(context,60);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent e) {
         manager = (SlideLayoutManager) getLayoutManager();
         adapter = (SlideRecyclerAdapter) getAdapter();
-        float newScrollX;
-        float currentX = e.getRawX();
-        float currentY = e.getRawY();
+        if (viewHolder != null){
+            viewHolder.slideLayout.swipeMenu(e);
+        }
+        float currentX = e.getX();
+        float currentY = e.getY();
         switch (e.getAction()){
             case MotionEvent.ACTION_DOWN:
-                
                 oldX = currentX;
                 oldY = currentY;
+                currentItem = getCurrentItem(manager,e);
+                view = findChildViewUnder(oldX,oldY);
+                viewHolder = (SlideRecyclerAdapter.ViewHolder)getChildViewHolder(view);
                 break;
             case MotionEvent.ACTION_MOVE:
                 dx = currentX - oldX;
                 dy = currentY - oldY;
-                newScrollX = currentX - dx - oldX;
-                Log.d("dingyl","dx : " + newScrollX);
                 if ((Math.abs(dx) > touchSlop) && (Math.abs(dx) > Math.abs(dy))){
+                    //Log.d("dingyl","move");
                     manager.setCanScroll(false);
-                    canJudge = false;
-                    adapter.slideMenu(dx);
-                    Log.d("dingyl","dx : " + newScrollX);
+                    viewHolder.slideLayout.smoothScrollBy(-(int)dx,0);
                 }
                 break;
             case MotionEvent.ACTION_UP:
                 manager.setCanScroll(true);
                 break;
-
         }
         return super.onTouchEvent(e);
+    }
+
+    private int getCurrentItem(SlideLayoutManager manager,MotionEvent event){
+        int result;
+        int firstVisibleItem = manager.findFirstVisibleItemPosition();
+        View view = getChildAt(firstVisibleItem);
+        float currentY = event.getY();
+        result = (int) ((currentY - view.getY())/ itemHeight) + firstVisibleItem;
+        return result;
     }
 
 }

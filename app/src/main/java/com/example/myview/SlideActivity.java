@@ -37,7 +37,7 @@ public class SlideActivity extends AppCompatActivity {
     private void initData(){
         Random random = new Random();
         slideTypes = new ArrayList<>();
-        for (int i=0;i<20;i++){
+        for (int i=0;i<10;i++){
             int x = random.nextInt(20);
             if (x % 2 == 0){
                 x = NORMAL_TYPE;
@@ -45,14 +45,14 @@ public class SlideActivity extends AppCompatActivity {
                 x = OFFICIAL_TYPE;
             }
             SlideType slideType = new SlideType();
-            slideType.setType(x);
+            //slideType.setType(x);
             slideType.setText("第 " + i + " 项");
             slideTypes.add(slideType);
         }
     }
 
     private void initListener(){
-        adapter = new SlideRecyclerAdapter(this,slideTypes);
+        adapter = new SlideRecyclerAdapter(this,slideTypes,recyclerView);
         recyclerView.setAdapter(adapter);
         SlideLayoutManager layoutManager = new SlideLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);

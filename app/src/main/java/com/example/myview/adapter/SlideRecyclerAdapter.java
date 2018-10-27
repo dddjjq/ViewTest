@@ -29,10 +29,12 @@ public class SlideRecyclerAdapter extends RecyclerView.Adapter<SlideRecyclerAdap
     private int currentItem;
     private ViewHolder holder;
     private SlideLayoutManager manager;
+    private RecyclerView recyclerView;
 
-    public SlideRecyclerAdapter(Context context,ArrayList<SlideType> slideTypes){
+    public SlideRecyclerAdapter(Context context,ArrayList<SlideType> slideTypes,RecyclerView recyclerView){
         this.context = context;
         this.slideTypes = slideTypes;
+        this.recyclerView = recyclerView;
     }
 
     @NonNull
@@ -43,21 +45,13 @@ public class SlideRecyclerAdapter extends RecyclerView.Adapter<SlideRecyclerAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SlideRecyclerAdapter.ViewHolder viewHolder,final int i) {
+    public void onBindViewHolder(@NonNull SlideRecyclerAdapter.ViewHolder viewHolder,int i) {
         //holder = viewHolder;
-        int type = slideTypes.get(i).getType();
+        /*int type = slideTypes.get(i).getType();
         if (type == SlideActivity.NORMAL_TYPE){
             //TODO to judge is normal or not
-
-        }
-        viewHolder.itemText.setText(slideTypes.get(i).getText());
-        viewHolder.layoutItem.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                currentItem = i;
-                return false;
-            }
-        });
+        }*/
+        viewHolder.slideLayout.setContentText(slideTypes.get(i).getText());
     }
 
     @Override
@@ -65,24 +59,23 @@ public class SlideRecyclerAdapter extends RecyclerView.Adapter<SlideRecyclerAdap
         return slideTypes.size();
     }
 
-    public void slideMenu(float width){
+    public void slideMenu(float width,View view){
         //Log.d("dingyl","currentItem : " + currentItem);
         //Log.d("dingyl","width : " + width);
         /*ObjectAnimator animator = ObjectAnimator.ofInt(holder.slideLayout,"translationX",0,(int) width);
         animator.setDuration(300);
         animator.start();*/
-        holder.slideLayout.smoothScrollTo(-(int)width,0);
+        //holder.slideLayout.smoothScrollTo(-(int)width,0);
+        holder = (ViewHolder) recyclerView.getChildViewHolder(view);
+        //Log.d("dingyl","holder : " + holder.itemText.getText().toString());
+        holder.slideLayout.smoothScrollBy(-(int)width,0);
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
-        LinearLayout layoutItem;
-        TextView itemText;
-        SlideItemView slideLayout;
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        public SlideItemView slideLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            layoutItem = itemView.findViewById(R.id.slide_layout_main);
-            itemText = itemView.findViewById(R.id.slide_text);
             slideLayout = itemView.findViewById(R.id.slide_layout);
         }
     }

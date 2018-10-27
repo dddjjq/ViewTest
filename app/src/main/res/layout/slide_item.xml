@@ -3,44 +3,4 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/slide_layout">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:id="@+id/slide_layout_main">
-        <TextView
-            android:id="@+id/slide_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test"
-            android:textSize="16sp"/>
-    </LinearLayout>
-    <Button
-        android:id="@+id/slide_top"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:text="置顶"
-        android:textSize="16sp"
-        android:background="@android:color/darker_gray"
-        android:textColor="#FFFFFF"/>
-    <Button
-        android:id="@+id/slide_mark"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:text="标为未读"
-        android:textSize="16sp"
-        android:background="#d89a30"
-        android:textColor="#FFFFFF"/>
-    <Button
-        android:id="@+id/slide_delete"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:text="删除"
-        android:textSize="16sp"
-        android:background="@android:color/holo_red_light"
-        android:textColor="#FFFFFF"/>
 </com.example.myview.view.SlideItemView>
