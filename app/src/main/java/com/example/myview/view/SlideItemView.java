@@ -30,6 +30,7 @@ public class SlideItemView extends LinearLayout {
     private static final int STATE_OPEN = 0;
     private static final int STATE_CLOSE = 1;
     private int touchSlop;
+    private boolean isMenuOpen;
 
     public SlideItemView(Context context) {
         super(context);
@@ -46,6 +47,8 @@ public class SlideItemView extends LinearLayout {
     }
 
     private void init(Context context){
+        isMenuOpen = false;
+        Log.d("dingyl","init");
         scroller = new Scroller(context);
         maxMenuWidth = DensityUtil.dp2px(context,100+120+100);
         LayoutInflater.from(context).inflate(R.layout.slide_item_view,this,true);
@@ -60,14 +63,27 @@ public class SlideItemView extends LinearLayout {
 
     public void smoothScrollBy(int dx,int dy){
         moveX = dx;
-        if (dx > menuView.getWidth()){
-            dx = menuView.getWidth();
+        if (!isMenuOpen){
+            //Log.d("dingyl","!isMenuOpen");
+            if (dx > menuView.getWidth()){
+                dx = menuView.getWidth();
+            }
+            if (dx < 0){
+                dx = 0;
+            }
+            mainView.layout(-dx,mainView.getTop(),mainView.getWidth()-dx,getMeasuredHeight());
+            menuView.layout(mainView.getWidth()-dx,menuView.getTop(),menuView.getWidth() + mainView.getWidth()-dx,getMeasuredHeight());
+        }else {
+            //Log.d("dingyl","isMenuOpen");
+            if (dx > 0){
+                dx = 0;
+            }
+            if (dx < -menuView.getWidth()){
+                dx = -menuView.getWidth();
+            }
+            mainView.layout(-menuView.getWidth()-dx,mainView.getTop(),-menuView.getWidth()-dx+mainView.getWidth(),getMeasuredHeight());
+            menuView.layout(-menuView.getWidth()-dx+mainView.getWidth(),menuView.getTop(),-dx+mainView.getWidth(),getMeasuredHeight());
         }
-        if (dx < 0){
-            dx = 0;
-        }
-        mainView.layout(-dx,mainView.getTop(),mainView.getWidth()-dx,getMeasuredHeight());
-        menuView.layout(mainView.getWidth()-dx,menuView.getTop(),menuView.getWidth() + mainView.getWidth()-dx,getMeasuredHeight());
     }
 
     @Override
@@ -85,8 +101,9 @@ public class SlideItemView extends LinearLayout {
 
     public void smoothOpenMenu(){
        // Log.d("dingyl","open");
-        scroller.startScroll(0,0,menuView.getWidth() - mainView.getWidth() + menuView.getLeft(),0,350);
+        scroller.startScroll(getScrollX(),0,menuView.getWidth() - moveX,0,350);
         invalidate();
+        isMenuOpen = true;
         /*mainView.layout(-menuView.getWidth(), 0, mainView.getWidth()-menuView.getWidth(), getMeasuredHeight());
         menuView.layout(mainView.getWidth()-menuView.getWidth(), 0, mainView.getWidth(), getMeasuredHeight());
         invalidate();*/
@@ -94,10 +111,9 @@ public class SlideItemView extends LinearLayout {
 
     public void smoothCloseMenu(){
         //Log.d("dingyl","close");
-        if (mainView.getWidth() > menuView.getLeft()){
-            scroller.startScroll(0,0,-mainView.getWidth() + menuView.getLeft(),0,350);
-            invalidate();
-        }
+        scroller.startScroll(getScrollX(),0,moveX,0,350);
+        invalidate();
+        isMenuOpen = false;
         /*mainView.layout(0, 0, mainView.getWidth(), mainView.getMeasuredHeight());
         menuView.layout(mainView.getWidth(), 0, mainView.getWidth() + menuView.getWidth(), mainView.getMeasuredHeight());
         invalidate();*/
@@ -106,7 +122,7 @@ public class SlideItemView extends LinearLayout {
     public void swipeMenu(MotionEvent event){
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
-                if (currentState == STATE_OPEN){
+                if (mainView.getLeft() < 0){
                     smoothCloseMenu();
                 }
                 break;

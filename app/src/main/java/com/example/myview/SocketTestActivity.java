@@ -46,6 +46,7 @@ public class SocketTestActivity extends AppCompatActivity {
         putButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                putButton.animate().translationZ(100);
                 executorService.execute(new Runnable() {
                     @Override
                     public void run() {

@@ -1,58 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:layout_margin="10dp">
-
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/circle_view"
-        android:text="Circle View"
-        android:textAllCaps="false"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/circle_view"
-        android:text="IR key Test"
-        android:textAllCaps="false"
-        android:id="@+id/ir_key_button"/>
-    <Button
-        android:id="@+id/pie_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ir_key_button"
-        android:text="Pie View"
-        android:textAllCaps="false"/>
-    <Button
-        android:id="@+id/refresh_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pie_view"
-        android:text="Refresh"
-        android:textAllCaps="false"/>
-    <Button
-        android:id="@+id/socket_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Socket"
-        android:textAllCaps="false"
-        android:layout_below="@id/refresh_button"/>
-    <Button
-        android:id="@+id/launcher_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/socket_button"
-        android:text="Launcher Test"
-        android:textAllCaps="false"/>
-    <Button
-        android:id="@+id/slide_menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/launcher_test"
-        android:text="Slide Menu"
-        android:textAllCaps="false"/>
-</RelativeLayout>
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/circle_view"
+            android:text="Circle View"
+            android:textAllCaps="false"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IR key Test"
+            android:textAllCaps="false"
+            android:id="@+id/ir_key_button"/>
+        <Button
+            android:id="@+id/pie_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pie View"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/refresh_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Refresh"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/socket_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Socket"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/launcher_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Launcher Test"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/slide_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Slide Menu"
+            android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/viewgroup_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Viewgroup Test"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+</ScrollView>

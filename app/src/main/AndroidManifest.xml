@@ -27,7 +27,8 @@
         <activity android:name=".RefreshActivity" />
         <activity android:name=".SocketTestActivity" />
         <activity android:name=".LauncherActivity" />
-        <activity android:name=".SlideActivity"></activity>
+        <activity android:name=".SlideActivity" />
+        <activity android:name=".ViewTestActivity"></activity>
     </application>
 
 </manifest>
