@@ -58,5 +58,11 @@
             android:layout_height="wrap_content"
             android:text="Viewgroup Test"
             android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/handler_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Handler Test"
+            android:textAllCaps="false"/>
     </LinearLayout>
 </ScrollView>
