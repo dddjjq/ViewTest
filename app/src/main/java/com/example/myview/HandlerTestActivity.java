@@ -90,6 +90,9 @@ public class HandlerTestActivity extends AppCompatActivity {
             }
             //Log.d("dingyl","show : " + show);
             if (show.contains("@")){
+                if (begin == 0){
+                    result = "\u3000\u3000" + result;
+                }
                 chapter = show.substring(0,show.indexOf("@"));
                 begin += 1;
                 result += chapter + "\n\u3000\u3000";
@@ -98,6 +101,10 @@ public class HandlerTestActivity extends AppCompatActivity {
                 chapter = show;
                 result += chapter + "\n";
                 myLineCount = lineTextCount;
+                if (begin == 0){
+                    result = "\u3000\u3000" + result;
+                    myLineCount = lineTextCount - 2;
+                }
             }
             begin += chapter.length();
             if (isChapterEnd){
