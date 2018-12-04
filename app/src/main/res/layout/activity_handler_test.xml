@@ -5,10 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HandlerTestActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/layout">
     <TextView
         android:id="@+id/text_handler_test"
-        android:layout_width="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="555"/>
+        android:textSize="13sp"
+        android:lineSpacingExtra="0dp"/>
 </LinearLayout>
