@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         slideMenuButton.setOnClickListener(this);
         findViewById(R.id.viewgroup_test).setOnClickListener(this);
         findViewById(R.id.handler_test).setOnClickListener(this);
+        findViewById(R.id.reader_layout).setOnClickListener(this);
     }
 
     @Override
@@ -81,6 +82,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.handler_test:
                 Intent intent8 = new Intent(this,HandlerTestActivity.class);
                 startActivity(intent8);
+                break;
+            case R.id.reader_layout:
+                Intent intent9 = new Intent(this,ReadLayoutActivity.class);
+                startActivity(intent9);
+                break;
         }
 
     }

@@ -29,7 +29,8 @@
         <activity android:name=".LauncherActivity" />
         <activity android:name=".SlideActivity" />
         <activity android:name=".ViewTestActivity" />
-        <activity android:name=".HandlerTestActivity"></activity>
+        <activity android:name=".HandlerTestActivity" />
+        <activity android:name=".ReadLayoutActivity"></activity>
     </application>
 
 </manifest>
